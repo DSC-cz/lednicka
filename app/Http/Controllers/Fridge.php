@@ -52,7 +52,7 @@ class Fridge extends Controller
 
         if(isset($fotka)){
             $imageName = uniqid() . '.' . $fotka->getClientOriginalExtension();
-            $move = $fotka->move(public_path('\images'), $imageName);
+            $move = $fotka->move(public_path('images'), $imageName);
             if(!$move) throw new Exception("nenahrála se fotka");
         }
 
@@ -80,7 +80,7 @@ class Fridge extends Controller
 
         if(isset($fotka)){
             $imageName = (!empty($inputs['aktualni_fotka']) ? $inputs['aktualni_fotka'] : uniqid() . '.' . $fotka->getClientOriginalExtension());
-            $fotka->move(public_path('\images'), $imageName);
+            $fotka->move(public_path('images'), $imageName);
         }
 
         $this->model->edit($id, $inputs['nazev'], $inputs['datum_vyroby'], $inputs['datum_nakupu'], $inputs['datum_trvanlivost'], $inputs['datum_spotreby'], $imageName);
